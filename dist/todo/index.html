@@ -1,0 +1,36 @@
+<template>
+  <section class="au-enter-active">
+    <div class="page-header">
+      <h1>Todo list</h1>
+    </div>
+    <div class="row" style="margin-bottom: 20px;">
+      <div if.bind="!user.isAuthenticated" class="alert alert-info" role="alert">
+        You must be <a route-href="route: accountSignin" class="alert-link">authenticated</a> to add a Todo
+      </div>
+      <form if.bind="user.isAuthenticated" class="form" submit.trigger="add()">
+        <div class="col-sm-8 col-md-8 col-lg-10">
+          <input type="text" class="form-control input-lg" placeholder="Todo text" value.bind="todoText">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-2" style="text-align: left">
+          <button type="submit" class="btn btn-lg btn-default">Add</button>
+        </div>
+    </form>
+    </div>
+    <div if.bind="message" class="alert alert-danger">
+      ${message}
+    </div>
+    <div class="row au-stagger">
+      <div class="col-sm-6 col-md-3 card-container au-animate" repeat.for="item of collection.items">
+        <div class="card">
+          <div class="avatar">
+            <img src.bind="item.ownerProfileImageUrl" crossorigin ref="image" />
+          </div>
+          <div class="content">
+            <p class="name">${item.text}</p>
+            <p textcontent.bind="$parent.fromNow(item.timestamp)"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

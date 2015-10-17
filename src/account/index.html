@@ -1,0 +1,20 @@
+<template>
+  <section class="au-enter-active">
+    <div class="page-header">
+      <h1>Account</h1>
+    </div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <p class="form-control-static">${authManager.currentUser.email}</p></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <a route-href="route: accountEditEmail" class="btn btn-default">Change your email</a>
+          <a route-href="route: accountEditPassword" class="btn btn-default">Change your password</a>
+        </div>
+      </div>
+    </form>
+  </section>
+</template>

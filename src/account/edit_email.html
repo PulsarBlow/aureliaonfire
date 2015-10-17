@@ -1,0 +1,30 @@
+<template>
+  <section class="au-enter-active">
+    <div class="page-header">
+      <h1>Account - Edit email</h1>
+    </div>
+    <a route-href="route: accountIndex" class="btn btn-default"><i class="fa fa-chevron-circle-left"></i> Account</a>
+    <hr />
+    <form submit.trigger="edit()">
+      <div class="form-group">
+        <label>Current email address</label>
+        <p class="form-control-static">${authManager.currentUser.email}</p>
+      </div>
+      <div class="form-group">
+        <label for="newEmail">New email address</label>
+        <input type="email" class="form-control" id="newEmail" value.bind="newEmail" placeholder="New email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" value.bind="password">
+      </div>
+      <div class="alert alert-danger" if.bind="error">
+        ${error}
+      </div>
+      <div class="alert alert-success" if.bind="message">
+        ${message}
+      </div>
+      <button type="submit" class="btn btn-default">Change email</button>
+    </form>
+  </section>
+</template>

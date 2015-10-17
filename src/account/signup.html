@@ -1,0 +1,19 @@
+<template>
+  <section class="au-enter-active">
+    <div class="page-header">
+      <h1>Sign up</h1>
+    </div>
+    <form role="form" submit.trigger="signUp()">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" value.bind="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" value.bind="password">
+      </div>
+      <div if.bind="message" class="alert alert-danger">${message}</div>
+      <input type="submit" value="Sign up" class="btn btn-default"/>
+    </form>
+  </section>
+</template>
