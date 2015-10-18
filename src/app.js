@@ -6,7 +6,7 @@ import {AuthenticationManager, Configuration} from 'aurelia-firebase';
 
 export class App {
   configureRouter(config, router) {
-    config.title = 'Aurelia Firebase';
+    config.title = 'Aurelia on Fire';
     config.addPipelineStep('authorize', AuthorizeStep);
     config.map([
       {route: ['', 'todo'], name: 'home', moduleId: 'todo/index', nav: true, title: 'Todo List'},
