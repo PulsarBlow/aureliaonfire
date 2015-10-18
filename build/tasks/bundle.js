@@ -10,7 +10,6 @@ var config = {
         '*/**/*',
         '*.html!text',
         '*.css!text',
-        'bootstrap/css/bootstrap.css!text',
         'github:twbs/bootstrap'
       ],
       options: {

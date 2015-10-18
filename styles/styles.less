@@ -1,23 +1,42 @@
-@import "_animations";
+@import (reference) "_variables";
+@import (reference) "_mixins";
+@import (once) "_animations";
+@import (once) "_bootstrap-overrides";
+@import (once) "_cards";
 
+html {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
 body {
   margin: 0;
 }
 
 .splash {
+  position:absolute;
+  background: #1a1a1a;
+  width:100%;
+  height: 100%;
   text-align: center;
-  margin: 10% 0 0 0;
+  padding: 5% 0 0 0;
   box-sizing: border-box;
+  color: @color-secondary;
 
+
+  .logo {
+    margin: 20px 0;
+  }
   .message {
     font-size: 72px;
     line-height: 72px;
-    text-transform: uppercase;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    .emboss-text;
 
     small {
       font-size: 0.3em;
-      color:#666;
+      font-weight: 200;
     }
   }
 
@@ -26,7 +45,7 @@ body {
     display: inline-block;
     font-size: 72px;
     margin-top: 50px;
-    color:#ccc;
+    //.engraved-text;
   }
 }
 
@@ -72,56 +91,24 @@ div.au-stagger {
   -webkit-animation-delay:50ms;
   animation-delay:50ms;
 }
-.card-container {
-  &.au-enter {
-    opacity: 0!important;
-  }
-  &.au-enter-active {
-    -webkit-animation: fadeIn 2s;
-    animation: fadeIn 2s;
-  }
-}
 
-.card {
-  overflow: hidden;
-  position: relative;
-  border: 1px solid #CCC;
-  border-radius: 8px;
-  text-align: center;
-  padding: 0;
-  background-color: #337ab7;
-  color: rgb(136, 172, 217);
-  margin-bottom: 32px;
-  box-shadow: 0 0 5px rgba(0,0,0,.5);
-  .content {
-    margin-top: 10px;
-    .name {
-      color: white;
-      text-shadow: 0 0 6px rgba(0,0,0,.5);
-      font-size: 18px;
-    }
-  }
-  .header-bg {
-    /* This stretches the canvas across the entire hero unit */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    border-bottom: 1px #FFF solid;
-    border-radius: 6px 6px 0 0;
-  }
-  .avatar {
-    position: relative;
-    margin-top: 15px;
-    z-index: 100;
-    img {
-      width: 100px;
-      height: 100px;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-      border: 2px #FFF solid;
+
+.footer {
+  position: absolute;
+  width:100%;
+  bottom: 0;
+  padding: 1em;
+  background-color: @color-ternary;
+  color: #ccc;
+
+  .footer-content {
+    width: 90%;
+    margin:auto;
+    text-align: center;
+
+    a {
+      color: @color-primary;
+      text-decoration: underline;
     }
   }
 }

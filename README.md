@@ -15,7 +15,7 @@ A powerful platform for your mobile or web application.
 
 When you combine the best javascript application framework with the best realtime javascript backend, you can create extraordinary user experiences.
 
-Learn more about [aurelia-firebase](https://github.com/pulsarblow/aurelia-firebase) plugin
+Learn more about [aurelia-firebase](https://github.com/pulsarblow/aurelia-firebase) plugin.
   
 ## Running The App
 

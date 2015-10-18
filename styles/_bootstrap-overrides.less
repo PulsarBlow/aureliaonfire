@@ -1,0 +1,33 @@
+@import (reference) "_variables";
+
+.navbar-default {
+  background-color: @color-ternary;
+
+  .navbar-nav {
+    > .active {
+      > a, > a:focus, > a:hover {
+        background-color: @color-ternary;
+        color: @color-primary;
+      }
+    }
+    > li {
+      > a {
+        &:hover, &:focus {
+          color: @color-primary;
+        }
+      }
+    }
+
+    > .open {
+      > a, > a:focus, > a:hover {
+        color: @color-ternary;
+        background-color: @color-primary;
+      }
+    }
+  }
+}
+
+.navbar-brand > img {
+  display:inline;
+  margin-top:-4px;
+}
