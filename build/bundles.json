@@ -23,7 +23,11 @@
         "aurelia-templating-router",
         "aurelia-loader-default",
         "aurelia-history-browser",
-        "aurelia-logging-console"
+        "aurelia-logging-console",
+        "aurelia-firebase",
+        "moment",
+        "firebase",
+        "nprogress"
       ],
       "options": {
         "inject": true,
