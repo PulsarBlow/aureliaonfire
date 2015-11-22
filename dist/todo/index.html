@@ -3,34 +3,59 @@
     <div class="page-header">
       <h1>Todo list</h1>
     </div>
-    <div class="row" style="margin-bottom: 20px;">
-      <div if.bind="!user.isAuthenticated" class="alert alert-info" role="alert">
-        You must be <a route-href="route: accountSignin" class="alert-link">authenticated</a> to add a Todo
-      </div>
+    <div if.bind="!user.isAuthenticated" class="alert alert-info" role="alert">
+      You must be <a route-href="route: accountSignin" class="alert-link">authenticated</a> to add a Todo
+    </div>
+    <div class="col-md-offset-2 col-md-8">
       <form if.bind="user.isAuthenticated" class="form" submit.trigger="add()">
-        <div class="col-sm-8 col-md-8 col-lg-10">
-          <input type="text" class="form-control input-lg" placeholder="Todo text" value.bind="todoText">
+        <div class="input-container input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="What need to be done ?" value.bind="todoText">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Add task</button>
+          </span>
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-2" style="text-align: left">
-          <button type="submit" class="btn btn-lg btn-default">Add</button>
+      </form>
+      <div if.bind="message" class="alert alert-danger">
+        ${message}
+      </div>
+      <div class="filters btn-toolbar">
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default active" click.trigger="selectedStateFilter = null">
+            <input type="checkbox" autocomplete="off" checked> All
+          </label>
+          <label class="btn btn-default" click.trigger="selectedStateFilter = 'active'">
+            <input type="checkbox" autocomplete="off"> Active
+          </label>
+          <label class="btn btn-default" click.trigger="selectedStateFilter = 'completed'">
+            <input type="checkbox" autocomplete="off"> Completed
+          </label>
         </div>
-    </form>
-    </div>
-    <div if.bind="message" class="alert alert-danger">
-      ${message}
-    </div>
-    <div class="row au-stagger">
-      <div class="col-sm-6 col-md-3 card-container au-animate" repeat.for="item of collection.items">
-        <div class="card">
-          <div class="avatar">
-            <img src.bind="item.ownerProfileImageUrl" crossorigin ref="image" />
-          </div>
-          <div class="content">
-            <p class="name">${item.text}</p>
-            <p textcontent.bind="$parent.fromNow(item.timestamp)"></p>
+        <div if.bind="user.isAuthenticated" class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default active" click.trigger="selectedOwnerFilter = null">
+            <input type="checkbox" autocomplete="off" checked> Everyone's
+          </label>
+          <label class="btn btn-default" click.trigger="selectedOwnerFilter = 'me'">
+            <input type="checkbox" autocomplete="off"> Mine
+          </label>
+        </div>
+        <div class="counter">
+          <strong>${filteredItems.length} tasks</strong>
+        </div>
+      </div>
+      <div class="todo-list" style="margin-bottom: 20px;">
+        <div class="au-stagger">
+          <div class="todo-container au-animate" repeat.for="item of filteredItems">
+            <div class="todo row clearfix">
+              <div class="avatar col-md-2">
+                <img src.bind="item.ownerProfileImageUrl" crossorigin ref="image"/>
+                <div class="moment">${$parent.fromNow(item.timestamp)}</div>
+              </div>
+              <div class="description col-md-10">${item.text}</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </section>
 </template>

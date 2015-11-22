@@ -1,4 +1,3 @@
-import 'bootstrap';
 import 'nprogress';
 import {inject} from 'aurelia-framework';
 import {Redirect} from 'aurelia-router';
@@ -45,10 +44,10 @@ export class App {
     this.fbConfig = config;
   }
 
-  run(routingContext, next) {
+  run(navigationInstruction, next) {
     // Check if the route has an "auth" key
     // Then check if the current authenticated user is valid
-    if (routingContext.nextInstructions.some(i => i.config.auth)) {
+    if (navigationInstruction.getAllInstructions().some(i => i.config.auth)) {
       if (!this.authManager || !this.authManager.currentUser || !this.authManager.currentUser.isAuthenticated) {
         return next.cancel(new Redirect(this.fbConfig.getLoginRoute()));
       }

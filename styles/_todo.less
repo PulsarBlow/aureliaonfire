@@ -1,0 +1,63 @@
+.input-container {
+  margin-bottom:10px;
+}
+
+.filters {
+  margin-bottom: 30px;
+
+  .counter {
+    float:right;
+    font-size: 1.5em;
+    color: #999999;
+  }
+}
+
+.todo-list {
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+
+  .todo-container {
+    border-top: 2px solid #ccc;
+    position: relative;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    .todo {
+      overflow: hidden;
+      position: relative;
+      padding: 20px;
+      color: #999;
+
+      .description {
+        font-size: 1.25em;
+        font-weight: 500;
+      }
+      .moment {
+        font-size:0.9em;
+      }
+
+      .content {
+
+      }
+
+      .avatar {
+        text-align: center;
+        img {
+          width: 50px;
+          height: 50px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          border: 2px #ccc solid;
+        }
+      }
+
+      .actions {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+    }
+  }
+}

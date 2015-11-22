@@ -2,7 +2,7 @@
 @import (reference) "_mixins";
 @import (once) "_animations";
 @import (once) "_bootstrap-overrides";
-@import (once) "_cards";
+@import (once) "_todo";
 
 html {
   height: 100%;
@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  padding: 0;
 }
 
 .splash {
@@ -27,6 +28,7 @@ body {
   .logo {
     margin: 20px 0;
   }
+
   .message {
     font-size: 72px;
     line-height: 72px;
@@ -45,31 +47,20 @@ body {
     display: inline-block;
     font-size: 72px;
     margin-top: 50px;
-    //.engraved-text;
   }
 }
 
+.demo-intro {
+  margin-top: 60px;
+  text-align: center;
+  a {
+    color: @color-primary;
+    text-decoration: underline;
+  }
+}
 .page-host {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50px;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-@media print
-{
-  .page-host {
-    position: absolute;
-    left: 10px;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    overflow-y: inherit;
-    overflow-x: inherit;
-  }
+  position: relative;
+  margin: 0 0 60px 0;
 }
 
 section {
@@ -80,35 +71,3 @@ section {
   max-width: 425px;
 }
 
-/* animate page transitions */
-section.au-enter-active {
-  -webkit-animation: fadeInRight 1s;
-  animation: fadeInRight 1s;
-}
-
-div.au-stagger {
-  /* 50ms will be applied between each successive enter operation */
-  -webkit-animation-delay:50ms;
-  animation-delay:50ms;
-}
-
-
-.footer {
-  position: absolute;
-  width:100%;
-  bottom: 0;
-  padding: 1em;
-  background-color: @color-ternary;
-  color: #ccc;
-
-  .footer-content {
-    width: 90%;
-    margin:auto;
-    text-align: center;
-
-    a {
-      color: @color-primary;
-      text-decoration: underline;
-    }
-  }
-}

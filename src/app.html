@@ -2,14 +2,10 @@
   <require from='./custom/attributes/show-progress'></require>
   <require from='./custom/elements/nav-bar'></require>
   <nav-bar router.bind="router" show-progress.bind="router.isNavigating"></nav-bar>
-
-  <div class="container page-host">
-    <router-view></router-view>
+  <div class="container-fluid demo-intro">
+    This application is a sample application demonstrating how to use <a href="https://github.com/PulsarBlow/aurelia-firebase" target="_blank">aurelia-firebase</a> plugin's features. Complete source code is available at <a href="https://github.com/PulsarBlow/aureliaonfire" target="_blank">github:PulsarBlow/aureliaonfire</a>
   </div>
-
-  <div class="footer">
-    <div class="footer-content">
-      This application is a sample application demonstrating how to use <a href="https://github.com/PulsarBlow/aurelia-firebase" target="_blank">aurelia-firebase</a> plugin's features. Complete source code is available at <a href="https://github.com/PulsarBlow/aureliaonfire" target="_blank">github:PulsarBlow/aureliaonfire</a>
-    </div>
+  <div class="container-fluid page-host">
+    <router-view></router-view>
   </div>
 </template>

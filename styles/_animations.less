@@ -1,3 +1,37 @@
+/* animate page transitions */
+section.au-enter-active {
+  -webkit-animation: fadeInRight 1s;
+  animation: fadeInRight 1s;
+}
+
+div.au-stagger {
+  /* 50ms will be applied between each successive enter operation */
+  -webkit-animation-delay:50ms;
+  animation-delay:50ms;
+}
+
+.todo-list {
+  .todo-container {
+
+    &.au-enter {
+      opacity: 0!important;
+    }
+
+    &.au-enter-active {
+      -webkit-animation: fadeIn 2s;
+      animation: fadeIn 2s;
+    }
+
+    &.au-leave {
+      -webkit-animation: fadeOut 0.5s;
+      animation: fadeOut 0.5s;
+    }
+
+    &.au-leave-active {
+      opacity: 0!important;
+    }
+  }
+}
 /* animation definitions */
 @-webkit-keyframes fadeInRight {
   0% {
@@ -29,19 +63,20 @@
 
 
 @-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }

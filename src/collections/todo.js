@@ -1,5 +1,5 @@
 import 'moment';
-import {inject} from 'aurelia-framework';
+import {inject, computedFrom} from 'aurelia-framework';
 import {ReactiveCollection, AuthenticationManager} from 'aurelia-firebase';
 
 @inject(AuthenticationManager)
@@ -11,6 +11,19 @@ export class TodoCollection extends ReactiveCollection {
     this._user = authManager.currentUser;
   }
 
+  @computedFrom('items')
+  get orderedItems() {
+    console.log('ordering');
+    return this.items.sort((item1, item2) => {
+      if(item1.timestamp < item2.timestamp) {
+        return -1;
+      }
+      if(item2.timestamp > item2.timestamp) {
+        return 1;
+      }
+      return 0;
+    });
+  }
   add(text:String) {
     if (!this._user || !this._user.isAuthenticated) {
       return Promise.reject({message: 'Authentication is required'});
@@ -23,7 +36,7 @@ export class TodoCollection extends ReactiveCollection {
       ownerId: this._user.uid,
       ownerProfileImageUrl: this._user.profileImageUrl,
       text: text,
-      timestamp: moment().utc().unix(),
+      timestamp: Math.floor(Date.now() / 1000),
       isCompleted: false
     });
   }
