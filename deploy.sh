@@ -114,6 +114,9 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install --production
   exitWithMessageOnError "npm install failed"
+  eval $NODE_EXE ./node_modules/jspm/jspm install -y
+  eval $NODE_EXE ./node_modules/gulp/bin/gulp clean
+  eval $NODE_EXE ./node_modules/gulp/bin/gulp bundle
   cd - > /dev/null
 fi
 
